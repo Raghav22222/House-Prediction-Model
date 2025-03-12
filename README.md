@@ -1,13 +1,43 @@
 # 🏠 House Price Prediction API
 
+## 📌 Project Overview  
 This project is a **Machine Learning API** built using **FastAPI**.  
-It predicts house prices based on various features such as price, availability, number of reviews, and more.  
+It predicts house prices based on various features such as **price per bedroom, availability, number of reviews, number of beds, and baths**.  
+
+The model is trained on **real estate data** to help users estimate housing prices efficiently.  
+By providing relevant features, users can obtain **an accurate price prediction** for a house listing.
+
+---
+
+## 🔬 Machine Learning Approach  
+This project follows a **structured ML pipeline**:  
+
+1. **Data Preprocessing**  
+   - Handled **missing values** and performed **feature engineering**  
+   - Removed **outliers** using the **Interquartile Range (IQR) method**  
+   - Scaled numerical features and **one-hot encoded categorical variables**  
+
+2. **Model Selection**  
+   - Trained and compared **three models**:  
+     - 📉 **Linear Regression** → Basic but interpretable model  
+     - 🌳 **Decision Tree** → Captures non-linearity but prone to overfitting  
+     - 🌲 **Random Forest** → Ensemble model providing high accuracy  
+
+3. **Hyperparameter Tuning**  
+   - Optimized the **Random Forest model** using **GridSearchCV**  
+   - Achieved a **94% R² score** after fine-tuning  
+
+4. **Deployment with FastAPI**  
+   - Built a **REST API** to serve predictions  
+   - Hosted on **Render** for real-time predictions  
+
+---
 
 ## 🚀 Features
-- **ML Model:** Fine-Tuned RandomForestRegressor
-- **API Framework:** FastAPI
-- **Deployment:** Hosted on Render
-- **Tested using:** Swagger UI (`/docs`)
+- **ML Model:** Fine-Tuned **RandomForestRegressor**
+- **API Framework:** **FastAPI**
+- **Deployment:** Hosted on **Render**
+- **Tested using:** Swagger UI (`/docs`) & CURL  
 
 ---
 
@@ -43,8 +73,9 @@ curl -X POST "https://house-prediction-model-tabr.onrender.com/predict" \
   "predicted_price": 20306.28
 }
 ```
-
+---
 🔧 How to Run the API Locally
+
 1️⃣ Clone the Repository
 ```bash
 git clone <your-github-repo-link>
@@ -62,25 +93,30 @@ uvicorn app:app --reload
 ```bash
 http://127.0.0.1:8000/docs
 ```
-📂 Project Structure
-
+---
+## 📂 Project Structure
+```plaintext
 📁 House-Prediction-Model/
 │── 📄 app.py                     # FastAPI script for serving predictions
 │── 📄 tuned_random_forest_model.pkl  # Trained machine learning model
 │── 📄 requirements.txt            # Dependencies for running the API
 │── 📄 house_price_prediction.ipynb  # Jupyter Notebook with model training code
 │── 📄 README.md                   # Project documentation
+```
+---
+## 🎯 How the Model Works
+- **Preprocessed the dataset** (handled missing values, feature engineering, encoding)
+- **Trained multiple models** (Linear Regression, Decision Tree, Random Forest)
+- **Selected the best model** (Fine-Tuned RandomForestRegressor)
+- **Optimized using Hyperparameter Tuning** (GridSearchCV)
+- **Deployed API using FastAPI & Render)
 
-🎯 How the Model Works
-Preprocessed the dataset (handled missing values, feature engineering, encoding)
-Trained multiple models (Linear Regression, Decision Tree, Random Forest)
-Selected the best model (Fine-Tuned RandomForestRegressor)
-Optimized using Hyperparameter Tuning (GridSearchCV)
-Deployed API using FastAPI & Render
+---
+## 📝 Author
+- 👤 **Raghav Tripathi**  
+- 📧 **Email:** `tripathiraghav43@gmailcom`  
+- 🔗 **GitHub:** [Your GitHub Profile](https://github.com/Raghav22222)
 
-📝 Author
-👤 Raghav Tripathi
-📧 Email: tripathiraghav43@gmailcom
-🔗 GitHub: https://github.com/Raghav22222
+
 
 
